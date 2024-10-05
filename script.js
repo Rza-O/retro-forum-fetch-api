@@ -11,15 +11,20 @@ const loadAllPosts = async (category) => {
     // }
 
     // Way 2 ternary operator
-    
+    // console.log(`https://openapi.programming-hero.com/api/retro-forum/posts${category ? `?category=${category}` : ''}`)
 
-    // const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`);
-    // const data = await response.json();
+    const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts${category ? `?category=${category}` : ''}`);
+    const data = await response.json();
     // console.log(data.posts);
-
-
-
+    displayAllPosts(data.posts);
 }
+
+const displayAllPosts = (posts) => {
+    console.log(posts);
+}
+
+
+
 loadAllPosts();
 
 const handleSearchByCategory = () => {
